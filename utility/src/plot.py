@@ -16,6 +16,14 @@ def linestype_generator():
         line_ID += (line_ID + 1) % len(linestyles)
 
 
+def linecolor_generator():
+    linecolors = ['r--', 'b--', 'p--']
+    line_ID = 0
+    while True:
+        yield linecolors[line_ID]
+        line_ID += (line_ID + 1) % len(linecolors)
+
+
 def plot_set(fig_ax: plt.Axes, *args: list) -> None:
     """setting the graph properties, but set parameter is as below.
 
