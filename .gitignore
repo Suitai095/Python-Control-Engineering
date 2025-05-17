@@ -1,1 +1,5 @@
 venv
+__pycache__
+build
+calculator.egg-info
+dist
