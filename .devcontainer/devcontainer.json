@@ -1,0 +1,6 @@
+{
+    "name": "Python Control Engineering",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "control-engineering",
+    "workspaceFolder": "/root/workspace"
+}

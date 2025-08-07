@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  control-engineering:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: control-engineering
+    tty: true
+    volumes:
+      - .:/root/workspace
