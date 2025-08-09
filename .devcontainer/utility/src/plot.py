@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
 
-def linestype_generator():
+def linestyle_generator():
     """decide of the linestyle of the plots.
 
     Yields
@@ -50,8 +50,8 @@ def plot_set(fig_ax: plt.Axes, *args: list) -> None:
         fig_ax.legend(loc=args[2])
 
 
-def boadplot_set(fig_ax: plt.Axes, *args: list) -> None:
-    """drawing the boarde line diagram.
+def bodeplot_set(fig_ax: plt.Axes, *args: list) -> None:
+    """drawing the bode line diagram.
 
     Parameters
     ----------
