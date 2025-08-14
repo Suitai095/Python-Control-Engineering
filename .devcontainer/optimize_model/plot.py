@@ -1,3 +1,4 @@
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 
 
@@ -42,6 +43,8 @@ def plot_set(fig_ax: plt.Axes, *args: list) -> None:
         - args[1] : ylabel
         - args[2] : legend location.
     """
+    mpl.rcParams['axes.xmargin'] = 0
+
     fig_ax.set_xlabel(args[0])
     fig_ax.set_ylabel(args[1])
     fig_ax.grid(ls=':')
@@ -63,12 +66,14 @@ def bodeplot_set(fig_ax: plt.Axes, *args: list) -> None:
         - args[0] : Gain data.
         - args[1] : Phase and Frequency data.
     """
-    # embeding of y labels and grid properties.
+    mpl.rcParams['axes.xmargin'] = 0
+
+    # embeding of x labels and grid properties.
     fig_ax[0].grid(which='both', ls=':', lw=0.5)
     fig_ax[0].set_ylabel('Gain [dB]')
 
     # embeding of x labels and y labels, grid properties.
-    fig_ax[1].grid(which='major', ls='-', lw=1)
+    fig_ax[1].grid(which='major', ls=':', lw=1)
     fig_ax[1].set_xlabel('Frequency [Hz]')
     fig_ax[1].set_ylabel('Phase [deg]')
 
