@@ -1,4 +1,6 @@
 # define objective function.
+from typing import Any, Tuple
+
 import numpy as np
 
 
@@ -8,14 +10,22 @@ def get_motion_stop_point(
     ref: float,
     stability_time: float,
     ) -> np.array:
-    residual_vibration = []
-    for y_i, t_i in zip(y, t):
-        if y_i >= ref:
-            residual_vibration.append(y_i)
-        
-        if t_i > stability_time:
-            break
 
+    def get_residual_vibration(
+        y: np.ndarray,
+        t: np.ndarray,
+        ref: float,
+        stability_time: float
+        ) -> Any:
+        for y_i, t_i in zip(y, t):
+            if y_i >= ref:
+                yield y_i
+            
+            if t_i > stability_time:
+                break
+    
+    ys = [ref*x for x in y]
+    residual_vibration = [x for x in get_residual_vibration(ys, t, ref, stability_time)]
     return np.array(residual_vibration)
 
 

@@ -20,9 +20,10 @@ def test_PID_control_robot() -> None:
 def test_I_PD_control_robot() -> None:
     pid = I_PD_control_robot(1, 1, 1)
 
-    ys, ts = pid.excute_result_for_response(np.arange(0, 2, 0.01))
+    ys, ts, zs = pid.excute_result_for_response(np.arange(0, 2, 0.01))
     assert type(ys) == np.ndarray
     assert type(ts) == np.ndarray
+    assert type(zs) == np.ndarray
 
     mag, phase, omega = pid.excute_result_bode_line_diagram()
     assert type(mag) == np.ndarray
